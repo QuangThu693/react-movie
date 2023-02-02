@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900 font-body text-white;
+  }
+}
+@layer components {
+  .page-container {
+    max-width: 1280px;
+    @apply mx-auto;
+  }
+
+  @media screen and (max-width: 1279px) {
+    .page-container {
+      padding: 20px;
+    }
+  }
+  @media screen and (max-width: 1023px) {
+    .page-container {
+      padding: 20px;
+    }
+  }
+
+  .movie-list .swiper-slide {
+    // width: 300px;
+    height: auto;
+  }
+
+  .swiper .swiper-button-prev,
+  .swiper .swiper-button-next {
+    background-color: rgba(black, 0.3);
+    border-radius: 50%;
+    padding: 20px;
+    font-weight: bold;
+  }
+
+  .swiper .swiper-button-prev:hover,
+  .swiper .swiper-button-next:hover {
+    color: red;
+  }
+
+  .banner .swiper {
+    height: 100%;
+  }
+}
+
+// pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  .selected {
+    @apply text-primary;
+  }
+}
+
+// skeletons
+.skeleton {
+  background-color: #eee;
+  background-image: linear-gradient(
+    110deg,
+    #ececec 8%,
+    #f5f5f5 18%,
+    #ececec 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
