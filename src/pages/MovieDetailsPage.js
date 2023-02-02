@@ -12,21 +12,13 @@ const MovieDetailsPage = () => {
   const { data } = useSWR(tmdbAPI.getMovieDetails(movieId), fetcher);
 
   if (!data) return null;
-  const {
-    backdrop_path,
-    poster_path,
-    title,
-    genres,
-    overview,
-    runtime,
-    release_date,
-  } = data;
+  const { poster_path, title, genres, overview, runtime, release_date } = data;
 
   return (
     <div className='py-5'>
       <div className='w-full h-[700px] lg:h-[450px] md:h-[350px] overflow-hidden relative'>
         <img
-          src={`https://image.tmdb.org/t/p/original/${backdrop_path}`}
+          src={tmdbAPI.imageOriginal(poster_path)}
           alt=''
           className='w-full h-full object-cover opacity-20'
         />
@@ -34,7 +26,7 @@ const MovieDetailsPage = () => {
         <div className='absolute top-0 left-0 h-full w-full flex items-center gap-x-10 md:gap-x-3'>
           <div className=' w-[30%] h-full p-3 '>
             <img
-              src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+              src={tmdbAPI.image500(poster_path)}
               alt=''
               className='w-full h-full object-cover rounded-xl'
             />

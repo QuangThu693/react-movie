@@ -23,7 +23,7 @@ const Header = () => {
           <NavLink
             to='/movies'
             className={({ isActive }) => (isActive ? "text-primary" : "")}>
-            All Movie
+            All Movies
           </NavLink>
         </div>
       </div>
